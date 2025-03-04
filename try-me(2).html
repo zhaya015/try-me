@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Cute Question, Just for you ❤️</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff9a9e, #fad0c4);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+        }
+        h1 {
+            color: #fff;
+            font-size: 2.5em;
+        }
+        p {
+            color: #fff;
+            font-size: 1.2em;
+        }
+        .btn-container {
+            margin-top: 20px;
+        }
+        button {
+            background: #ff477e;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin: 10px;
+        }
+        button:hover {
+            background: #ff2e63;
+        }
+        #response {
+            font-size: 1.5em;
+            color: #fff;
+            margin-top: 20px;
+        }
+        #sideComment {
+            font-size: 1.2em;
+            color: #fff;
+            margin-top: 10px;
+            font-style: italic;
+        }
+        .cute-cat {
+            width: 100px;
+            position: absolute;
+            bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Would you like to go on a date with me? ❤️</h1>
+    <p>I promise it'll be the best time ever! 😘</p>
+    <div class="btn-container" id="firstStep">
+        <button onclick="firstChoice(true)">Yes</button>
+        <button onclick="firstChoice(false)">No</button>
+    </div>
+    <div class="btn-container" id="sureStep" style="display: none;">
+        <button onclick="finalChoice()">Very Sure</button>
+    </div>
+    <div class="btn-container" id="noStep" style="display: none;">
+        <button onclick="finalChoice()">Yes</button>
+        <button onclick="finalChoice()">Definitely Yes</button>
+    </div>
+    <p id="response"></p>
+    <p id="sideComment"></p>
+    <img src=Cat/cutecat.jpeg alt="Cute Image" class="extra-img">
+    
+    <script>
+        function firstChoice(isYes) {
+            document.getElementById("firstStep").style.display = "none";
+            if (isYes) {
+                document.getElementById("sureStep").style.display = "block";
+                document.getElementById("sideComment").innerText = "Hmm Are you sure?... second thoughts? 👀";
+            } else {
+                document.getElementById("noStep").style.display = "block";
+                document.getElementById("sideComment").innerText = "Oh no, Don't you miss me? you must have misclicked! Let's try again. ";
+            }
+        }
+        
+        function finalChoice() {
+            document.getElementById("sureStep").style.display = "none";
+            document.getElementById("noStep").style.display = "none";
+            document.getElementById("response").innerText = "Yay! I knew you'd say yes! 💖";
+            document.getElementById("sideComment").innerText = "Best choice ever! 🥰";
+        }
+    </script>
+</body>
+</html>
